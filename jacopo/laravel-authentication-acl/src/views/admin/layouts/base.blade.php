@@ -271,6 +271,12 @@ try {
                                 <span class="menu-text"> Category </span>
                             </a>
                         </li>
+                        <li>
+                            <a href="/admin/populars">
+                                <i class="icon-dashboard"></i>
+                                <span class="menu-text"> Popular Categories </span>
+                            </a>
+                        </li>
                         <?php } ?>
                         <li>
                             <a href="/admin/products">
@@ -473,6 +479,8 @@ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+
                     $('.modal-title').html('Delete Product');                   
                 } else if (part == 'brands') {
                     $('.modal-title').html('Delete Brand');
+                } else if (part == 'populars') {
+                    $('.modal-title').html('Delete Popular Category');
                 } else {
                     $('.modal-title').html('Delete Category');
                 }
@@ -518,6 +526,8 @@ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+
                         $('.modal-title').html('Delete Product');
                     } else if (part == 'brands') {
                         $('.modal-title').html('Delete Brand');;
+                     } else if (part == 'populars') {
+                    $('.modal-title').html('Delete Popular Category');    
                     } else {
                         $('.modal-title').html('Delete Category');                        
                     }
@@ -587,6 +597,23 @@ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+
                         required: "Please enter a star",
                         number: "Must be a number"
                     },
+                }
+            });
+            $("#populars-form").validate({
+                rules: {
+                    name: "required",
+                    price: {
+                        required: true,
+                        number: true
+                    },
+                },
+                messages: {
+                    name: "Please enter your name",
+                    price: {
+                        required: "Please enter a price",
+                        number: "Must be a number"
+                    },
+
                 }
             });
             $("#brands-form").validate({
