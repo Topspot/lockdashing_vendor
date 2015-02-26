@@ -14,7 +14,7 @@ class DbSeeder extends Seeder
     {
         Eloquent::unguard();
 
-        $this->call('Jacopo\Authentication\Seeds\PermissionSeeder');
+//        $this->call('Jacopo\Authentication\Seeds\PermissionSeeder');
         $this->call('Jacopo\Authentication\Seeds\GroupsSeeder');
         $this->call('Jacopo\Authentication\Seeds\UserSeeder');
 

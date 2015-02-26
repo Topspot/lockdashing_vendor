@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddColoumToProductsTable' => $baseDir . '/app/database/migrations/2015_02_21_203456_add_coloum_to_products_table.php',
+    'AddColoumUser' => $baseDir . '/app/database/migrations/2015_02_24_071344_add_coloum_user.php',
     'AdminBrandsController' => $baseDir . '/app/controllers/Admin/AdminBrandsController.php',
     'AdminCategoriesController' => $baseDir . '/app/controllers/Admin/AdminCategoriesController.php',
     'AdminProductsController' => $baseDir . '/app/controllers/Admin/AdminProductsController.php',
@@ -1571,6 +1573,9 @@ return array(
     'Psr\\Log\\LoggerInterface' => $vendorDir . '/psr/log/Psr/Log/LoggerInterface.php',
     'Psr\\Log\\LoggerTrait' => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php',
     'Psr\\Log\\NullLogger' => $vendorDir . '/psr/log/Psr/Log/NullLogger.php',
+    'RemoveBrandIdFromUser' => $baseDir . '/app/database/migrations/2015_02_24_063714_remove_brand_id_from_user.php',
+    'RemoveColoumUserRoles' => $baseDir . '/app/database/migrations/2015_02_24_073512_remove_coloum_user_roles.php',
+    'RemoveUaerRoleIdFromUser' => $baseDir . '/app/database/migrations/2015_02_24_064524_remove_uaer_role_id_from_user.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'Stack\\Builder' => $vendorDir . '/stack/builder/src/Stack/Builder.php',
     'Stack\\StackedHttpKernel' => $vendorDir . '/stack/builder/src/Stack/StackedHttpKernel.php',

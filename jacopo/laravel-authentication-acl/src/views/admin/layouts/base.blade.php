@@ -64,7 +64,7 @@
     </head>
 
     <body class="skin-3">
-
+ <?php // print_r(Sentry::getUser()->id);?>
         <div class="navbar navbar-default" id="navbar">
             <script type="text/javascript">
 try {
@@ -184,7 +184,9 @@ try {
                                 <span class="menu-text"> Dashboard </span>
                             </a>
                         </li>
-
+                        <?php  if(Sentry::getUser()->id == 1){
+                            
+                            ?>
                         <li>
                             <a href="#" class="dropdown-toggle">
                                 <i class="icon-list"></i>
@@ -257,13 +259,7 @@ try {
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="/admin/products">
-                                <i class="icon-dashboard"></i>
-                                <span class="menu-text"> Products </span>
-                            </a>
-                        </li>
-                        <li>
+                          <li>
                             <a href="/admin/brands">
                                 <i class="icon-dashboard"></i>
                                 <span class="menu-text"> Brands </span>
@@ -275,6 +271,14 @@ try {
                                 <span class="menu-text"> Category </span>
                             </a>
                         </li>
+                        <?php } ?>
+                        <li>
+                            <a href="/admin/products">
+                                <i class="icon-dashboard"></i>
+                                <span class="menu-text"> Products </span>
+                            </a>
+                        </li>
+                      
                     </ul><!-- /.nav-list -->
 
                     <div class="sidebar-collapse" id="sidebar-collapse">

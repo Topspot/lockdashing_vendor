@@ -7,7 +7,10 @@ Admin area: edit user
 @section('content')
 
 <div class="row">
+    <?php // print_r($brands);exit();?>
     <div class="col-md-12">
+        <?php // print_r(App::make('authenticator')->getLoggedUser());?>
+       
         {{-- successful message --}}
         <?php $message = Session::get('message'); ?>
         @if( isset($message) )
@@ -35,6 +38,8 @@ Admin area: edit user
                     {{Form::model($user, [ 'url' => URL::action('Jacopo\Authentication\Controllers\UserController@postEditUser')] ) }}
                     {{-- Field hidden to fix chrome and safari autocomplete bug --}}
                     {{Form::password('__to_hide_password_autocomplete', ['class' => 'hidden'])}}
+<!--                    {{ Form::hidden('user_roles_id', 2 , array('id' => 'user_roles_id')) }}
+                    {{ Form::hidden('brand_id', 0, array('id' => 'brand_id') ) }}-->
                     <!-- email text field -->
                     <div class="form-group">
                         {{Form::label('email','Email: *')}}
@@ -53,6 +58,7 @@ Admin area: edit user
                         {{Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => '','autocomplete' => 'off'])}}
                     </div>
                     <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
+                    <?php  if(Sentry::getUser()->id == 1){ ?>
                     <div class="form-group">
                         {{Form::label("activated","User active: ")}}
                         {{Form::select('activated', ["1" => "Yes", "0" => "No"], (isset($user->activated) && $user->activated) ? $user->activated : "0", ["class"=> "form-control"] )}}
@@ -61,12 +67,19 @@ Admin area: edit user
                         {{Form::label("banned","Banned: ")}}
                         {{Form::select('banned', ["1" => "Yes", "0" => "No"], (isset($user->banned) && $user->banned) ? $user->banned : "0", ["class"=> "form-control"] )}}
                     </div>
+                     <?php }else{ ?>
+                    {{Form::select('activated', ["1" => "Yes", "0" => "No"], (isset($user->activated) && $user->activated) ? $user->activated : "0", ["class"=> "form-control",'style'=>'display:none;'] )}}
+                     {{Form::select('banned', ["1" => "Yes", "0" => "No"], (isset($user->banned) && $user->banned) ? $user->banned : "0", ["class"=> "form-control",'style'=>'display:none;'] )}}
+                    <?php } ?>
                     {{Form::hidden('id')}}
                     {{Form::hidden('form_name','user')}}
+                    <?php  if(Sentry::getUser()->id == 1){ ?>
                     <a href="{{URL::action('Jacopo\Authentication\Controllers\UserController@deleteUser',['id' => $user->id, '_token' => csrf_token()])}}" class="btn btn-danger pull-right margin-left-5 delete">Delete user</a>
+                   <?php } ?>
                     {{Form::submit('Save', array("class"=>"btn btn-info pull-right "))}}
                     {{Form::close()}}
                     </div>
+                 <?php  if(Sentry::getUser()->id == 1){ ?>
                     <div class="col-md-6 col-xs-12">
                         <h4><i class="fa fa-users"></i> Groups</h4>
                         @include('laravel-authentication-acl::admin.user.groups')
@@ -76,6 +89,7 @@ Admin area: edit user
                         {{-- permissions --}}
                         @include('laravel-authentication-acl::admin.user.perm')
                     </div>
+                 <?php } ?>
                 </div>
             </div>
       </div>

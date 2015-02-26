@@ -26,6 +26,21 @@ Route::filter('logged', function ($request, $response, $custom_url = null) {
     if(!App::make('authenticator')->check()) return Redirect::to($redirect_url);
 });
 
+Route::filter('brand', function()
+{
+    // Lines of code to get role
+    if(Sentry::getUser()->id != 1) return Redirect::to('/admin/users/dashboard');
+});
+Route::filter('category', function()
+{
+    // Lines of code to get role
+    if(Sentry::getUser()->id != 1) return Redirect::to('/admin/users/dashboard');
+});
+Route::filter('user', function()
+{
+    // Lines of code to get role
+    if(Sentry::getUser()->id != 1) return Redirect::to('/admin/users/dashboard');
+});
 /*
 |--------------------------------------------------------------------------
 | Permission Filters
