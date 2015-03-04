@@ -75,7 +75,7 @@ try {
 
             <div class="navbar-container" id="navbar-container">
                 <div class="navbar-header pull-left">
-                    <a href="#" class="navbar-brand">
+                    <a href="/admin/users/dashboard" class="navbar-brand" style="margin-left: -15px !important;">
                         <img  src="/images/smalllookdashinglogo190.png" alt="Jason's Photo" />
 
 
@@ -87,10 +87,10 @@ try {
 
                         <li class="light-blue">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                <img class="nav-user-photo" src="/assets/avatars/user.jpg" alt="Jason's Photo" />
+                              
+                                <!--<img class="nav-user-photo" src="<?php echo Sentry::getUser()->image; ?>" alt="Jason's Photo" />-->
                                 <span class="user-info">
-                                    <small>Welcome,</small>
-                                    Jason
+                                  <?php echo App::make('authenticator')->getLoggedUser()->getLogin(); ?>
                                 </span>
 
                                 <i class="icon-caret-down"></i>
@@ -98,16 +98,17 @@ try {
 
                             <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                                 <li>
-                                    <a href="#">
+                                    <a href="/admin/users/profile/edit?user_id=<?php echo Sentry::getUser()->id; ?>">
                                         <i class="icon-cog"></i>
-                                        Settings
+                                        Profile
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#">
+                           
+                                   <a href="/admin/users/edit?id=<?php echo Sentry::getUser()->id; ?>" >
                                         <i class="icon-user"></i>
-                                        Profile
+                                        Account
                                     </a>
                                 </li>
 
@@ -147,46 +148,32 @@ try {
                         }
                     </script>
 
-                    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-                        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                            <button class="btn btn-success">
-                                <i class="icon-signal"></i>
-                            </button>
 
-                            <button class="btn btn-info">
-                                <i class="icon-pencil"></i>
-                            </button>
-
-                            <button class="btn btn-warning">
-                                <i class="icon-group"></i>
-                            </button>
-
-                            <button class="btn btn-danger">
-                                <i class="icon-cogs"></i>
-                            </button>
-                        </div>
-
-                        <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                            <span class="btn btn-success"></span>
-
-                            <span class="btn btn-info"></span>
-
-                            <span class="btn btn-warning"></span>
-
-                            <span class="btn btn-danger"></span>
-                        </div>
-                    </div><!-- #sidebar-shortcuts -->
-
+                    
                     <ul class="nav nav-list">
+                         <?php
+                         
+                         if(Session::get('currentActiveMenu') == '/admin/users/dashboard'){
+                         ?>   
                         <li class="active">
-                            <a href="/admin/users/dashboard">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>     
+                            <a href="/admin/users/dashboard" class="knowclick">
                                 <i class="icon-dashboard"></i>
-                                <span class="menu-text"> Dashboard </span>
+                                <span class="menu-text">Dashboard </span>
                             </a>
                         </li>
                         <?php if (Sentry::getUser()->id == 1) {
+                          
                             ?>
-                            <li>
+                                <?php
+                         if(Session::get('currentActiveMenu') == '/admin/users/list' || Session::get('currentActiveMenu') == '/admin/users/edit'){
+                         ?>   
+                        <li class="active open">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>  
                                 <a href="#" class="dropdown-toggle">
                                     <i class="icon-list"></i>
                                     <span class="menu-text"> Users </span>
@@ -195,22 +182,40 @@ try {
                                 </a>
 
                                 <ul class="submenu">
-                                    <li>
-                                        <a href="/admin/users/list">
+                                    <?php
+                         if(Session::get('currentActiveMenu') == '/admin/users/list'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>  
+                                        <a href="/admin/users/list" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             List
                                         </a>
                                     </li>
 
-                                    <li>
-                                        <a href="/admin/users/edit">
+                                   <?php
+                         if(Session::get('currentActiveMenu') == '/admin/users/edit'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>  
+                                        <a href="/admin/users/edit" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
-                                            Add
+                                            Add 
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                                    <?php
+                         if(Session::get('currentActiveMenu') == '/admin/groups/list' || Session::get('currentActiveMenu') == '/admin/groups/edit'){
+                         ?>   
+                        <li class="active open">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>  
                                 <a href="#" class="dropdown-toggle">
                                     <i class="icon-list"></i>
                                     <span class="menu-text"> Groups </span>
@@ -219,22 +224,38 @@ try {
                                 </a>
 
                                 <ul class="submenu">
-                                    <li>
-                                        <a href="/admin/groups/list">
+                                 <?php   if(Session::get('currentActiveMenu') == '/admin/groups/list'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>  
+                                        <a href="/admin/groups/list" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             List
                                         </a>
                                     </li>
 
-                                    <li>
-                                        <a href="/admin/groups/edit">
+                                        <?php   if(Session::get('currentActiveMenu') == '/admin/groups/edit'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>
+                                        <a href="/admin/groups/edit" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             Add
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                                       <?php
+                         if(Session::get('currentActiveMenu') == '/admin/permissions/list' || Session::get('currentActiveMenu') == '/admin/permissions/edit'){
+                         ?>   
+                        <li class="active open">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>  
                                 <a href="#" class="dropdown-toggle">
                                     <i class="icon-list"></i>
                                     <span class="menu-text"> Permissions </span>
@@ -243,42 +264,76 @@ try {
                                 </a>
 
                                 <ul class="submenu">
-                                    <li>
-                                        <a href="/admin/permissions/list">
+                                                 <?php   if(Session::get('currentActiveMenu') == '/admin/permissions/list'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>
+                                        <a href="/admin/permissions/list" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             List
                                         </a>
                                     </li>
 
-                                    <li>
-                                        <a href="/admin/permissions/edit">
+                                              <?php   if(Session::get('currentActiveMenu') == '/admin/permissions/edit'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>
+                                        <a href="/admin/permissions/edit" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             Add
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="/admin/brands">
+                            <?php
+                         if(Session::get('currentActiveMenu') == '/admin/brands'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>    
+                       
+                                <a href="/admin/brands" class="knowclick">
                                     <i class="icon-dashboard"></i>
                                     <span class="menu-text"> Brands </span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/admin/categories">
+                        <?php   if(Session::get('currentActiveMenu') == '/admin/categories'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>    
+                                <a href="/admin/categories" class="knowclick">
+                         
                                     <i class="icon-dashboard"></i>
                                     <span class="menu-text"> Category </span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/admin/populars">
+                            
+                           <?php   if(Session::get('currentActiveMenu') == '/admin/populars'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
+                        <li>
+                         <?php } ?>    
+                                <a href="/admin/populars" class="knowclick">
                                     <i class="icon-dashboard"></i>
                                     <span class="menu-text"> Popular Categories </span>
                                 </a>
                             </li>
                         <?php } ?>
+                         <?php   if(Session::get('currentActiveMenu') == '/admin/products'){
+                         ?>   
+                        <li class="active">
+                         <?php }else{ ?> 
                         <li>
-                            <a href="/admin/products">
+                         <?php } ?> 
+                            <a href="/admin/products" class="knowclick">
                                 <i class="icon-dashboard"></i>
                                 <span class="menu-text"> Products </span>
                             </a>
@@ -465,6 +520,82 @@ try {
 
             <script type="text/javascript">
                 $(document).ready(function () {
+                    $('.nav-list > li').removeClass('active');
+                    
+                    var active=$('.page-content h1').html();
+                    
+                    if (active == 'Categories'){                       
+                    $('a[href$="/admin/categories"]').closest('li').addClass('active');
+                    }else if(active == 'Products'){
+                    $('a[href$="/admin/products"]').closest('li').addClass('active');
+                    }else if(active == 'Brands'){
+                          $('a[href$="/admin/brands"]').closest('li').addClass('active');   
+                    }else if(active == 'Popular Categories'){
+                          $('a[href$="/admin/populars"]').closest('li').addClass('active');
+                    }
+                     var dashboard=$('.page-content h3').text();
+                     if (dashboard == ' Dashboard'){                       
+                    $('a[href$="/admin/users/dashboard"]').closest('li').addClass('active');
+                    }
+                   
+                   var mul=$('.panel-heading h3').text();
+                  
+                    if(mul == ' Users User search'){                       
+                    $('a[href$="/admin/users/list"]').closest('li').addClass('active');
+                    $('a[href$="/admin/users/list"]').closest('li').parent().parent().addClass('active open');
+                    }else if(mul == ' Create user'){
+                        console.log('asdasd');
+                    $('a[href$="/admin/users/edit"]').closest('li').addClass('active');
+                    $('a[href$="/admin/users/edit"]').closest('li').parent().parent().addClass('active open');
+                    }else if(mul == ' Groups Group search'){
+                    $('a[href$="/admin/groups/list"]').closest('li').addClass('active');   
+                    $('a[href$="/admin/groups/list"]').closest('li').parent().parent().addClass('active open');
+                    }else if(mul == ' Create group'){
+                    $('a[href$="/admin/groups/edit"]').closest('li').addClass('active');     
+                    $('a[href$="/admin/groups/edit"]').closest('li').parent().parent().addClass('active open');
+                    }else if(mul == ' Permissions'){
+                    $('a[href$="/admin/permissions/list"]').closest('li').addClass('active');   
+                     $('a[href$="/admin/permissions/list"]').closest('li').parent().parent().addClass('active open');
+                    }else if(mul == ' Create permission'){
+                    $('a[href$="/admin/permissions/edit"]').closest('li').addClass('active');
+                    $('a[href$="/admin/permissions/edit"]').closest('li').parent().parent().addClass('active open');
+                    }
+//                    console.log(active);
+//                   function getActive(url){
+//                        var ajaxurl = '<?php echo URL::to('/'); ?>/admin/products/currentActiveMenu';
+//                            jQuery.ajax({
+//                                type: 'POST',
+//                                data: {'url': url},
+//                                url: ajaxurl,
+//                                success: function () {
+//                                    setTimeout(
+//                                    function() 
+//                                    {
+//                                       location.reload();
+//                                    }, 0001);    
+//                               }
+//                         });
+//                   }
+                     
+//                       $('.knowclick').click(function(){
+//                       var url=$(this).attr('href');
+//                       
+//                       var ajaxurl = '<?php echo URL::to('/'); ?>/admin/products/currentActiveMenu';
+//                            jQuery.ajax({
+//                                type: 'POST',
+//                                data: {'url': url},
+//                                url: ajaxurl,
+//                                success: function (html) {
+//                                    setTimeout(
+//                                    function() 
+//                                    {
+//                                      console.log("hello");
+//                                    }, 0001);    
+//                               }
+//                         });
+//
+//                    }); 
+//                    
                     $('.featured-item').click(function () {
                         var check='';
                         if ($(this).is(':checked')) {
