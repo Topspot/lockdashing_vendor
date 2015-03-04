@@ -87,10 +87,10 @@ try {
 
                         <li class="light-blue">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                              
-                                <!--<img class="nav-user-photo" src="<?php echo Sentry::getUser()->image; ?>" alt="Jason's Photo" />-->
+
+  <!--<img class="nav-user-photo" src="<?php echo Sentry::getUser()->image; ?>" alt="Jason's Photo" />-->
                                 <span class="user-info">
-                                  <?php echo App::make('authenticator')->getLoggedUser()->getLogin(); ?>
+                                    <?php echo App::make('authenticator')->getLoggedUser()->getLogin(); ?>
                                 </span>
 
                                 <i class="icon-caret-down"></i>
@@ -105,8 +105,8 @@ try {
                                 </li>
 
                                 <li>
-                           
-                                   <a href="/admin/users/edit?id=<?php echo Sentry::getUser()->id; ?>" >
+
+                                    <a href="/admin/users/edit?id=<?php echo Sentry::getUser()->id; ?>" >
                                         <i class="icon-user"></i>
                                         Account
                                     </a>
@@ -149,59 +149,40 @@ try {
                     </script>
 
 
-                    
+
                     <ul class="nav nav-list">
-                         <?php
-                         
-                         if(Session::get('currentActiveMenu') == '/admin/users/dashboard'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>     
+
+                        <li>  
                             <a href="/admin/users/dashboard" class="knowclick">
                                 <i class="icon-dashboard"></i>
                                 <span class="menu-text">Dashboard </span>
                             </a>
                         </li>
                         <?php if (Sentry::getUser()->id == 1) {
-                          
                             ?>
-                                <?php
-                         if(Session::get('currentActiveMenu') == '/admin/users/list' || Session::get('currentActiveMenu') == '/admin/users/edit'){
-                         ?>   
-                        <li class="active open">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>  
+
+                            <li>
+
                                 <a href="#" class="dropdown-toggle">
-                                    <i class="icon-list"></i>
+                                    <i  class="fa fa-user super-icon" ></i>
+
                                     <span class="menu-text"> Users </span>
 
                                     <b class="arrow icon-angle-down"></b>
                                 </a>
 
                                 <ul class="submenu">
-                                    <?php
-                         if(Session::get('currentActiveMenu') == '/admin/users/list'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>  
+
+                                    <li>
+
                                         <a href="/admin/users/list" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             List
                                         </a>
                                     </li>
 
-                                   <?php
-                         if(Session::get('currentActiveMenu') == '/admin/users/edit'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>  
+                                    <li>
+
                                         <a href="/admin/users/edit" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             Add 
@@ -209,39 +190,30 @@ try {
                                     </li>
                                 </ul>
                             </li>
-                                    <?php
-                         if(Session::get('currentActiveMenu') == '/admin/groups/list' || Session::get('currentActiveMenu') == '/admin/groups/edit'){
-                         ?>   
-                        <li class="active open">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>  
+
+                            <li>
+
                                 <a href="#" class="dropdown-toggle">
-                                    <i class="icon-list"></i>
+                                    <i class="fa fa-users super-icon"></i>
+
                                     <span class="menu-text"> Groups </span>
 
                                     <b class="arrow icon-angle-down"></b>
                                 </a>
 
                                 <ul class="submenu">
-                                 <?php   if(Session::get('currentActiveMenu') == '/admin/groups/list'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>  
+
+                                    <li>
+
                                         <a href="/admin/groups/list" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             List
                                         </a>
                                     </li>
 
-                                        <?php   if(Session::get('currentActiveMenu') == '/admin/groups/edit'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>
+
+                                    <li>
+
                                         <a href="/admin/groups/edit" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             Add
@@ -249,39 +221,29 @@ try {
                                     </li>
                                 </ul>
                             </li>
-                                       <?php
-                         if(Session::get('currentActiveMenu') == '/admin/permissions/list' || Session::get('currentActiveMenu') == '/admin/permissions/edit'){
-                         ?>   
-                        <li class="active open">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>  
+
+                            <li>
+
                                 <a href="#" class="dropdown-toggle">
-                                    <i class="icon-list"></i>
+                                    <i class="fa fa-key super-icon"></i>
+
                                     <span class="menu-text"> Permissions </span>
 
                                     <b class="arrow icon-angle-down"></b>
                                 </a>
 
                                 <ul class="submenu">
-                                                 <?php   if(Session::get('currentActiveMenu') == '/admin/permissions/list'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>
+
+                                    <li>
+
                                         <a href="/admin/permissions/list" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             List
                                         </a>
                                     </li>
 
-                                              <?php   if(Session::get('currentActiveMenu') == '/admin/permissions/edit'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>
+                                    <li>
+
                                         <a href="/admin/permissions/edit" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             Add
@@ -289,52 +251,42 @@ try {
                                     </li>
                                 </ul>
                             </li>
-                            <?php
-                         if(Session::get('currentActiveMenu') == '/admin/brands'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>    
-                       
+
+                            <li>
+
+
                                 <a href="/admin/brands" class="knowclick">
-                                    <i class="icon-dashboard"></i>
+                                    <i class="fa fa-bold super-icon"></i>
+
                                     <span class="menu-text"> Brands </span>
                                 </a>
                             </li>
-                        <?php   if(Session::get('currentActiveMenu') == '/admin/categories'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>    
+
+                            <li>
+
                                 <a href="/admin/categories" class="knowclick">
-                         
-                                    <i class="icon-dashboard"></i>
+                                   <i class="fa fa-sort-alpha-asc super-icon"></i>
+
+
+
                                     <span class="menu-text"> Category </span>
                                 </a>
                             </li>
-                            
-                           <?php   if(Session::get('currentActiveMenu') == '/admin/populars'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
-                        <li>
-                         <?php } ?>    
+
+                            <li>
+
                                 <a href="/admin/populars" class="knowclick">
-                                    <i class="icon-dashboard"></i>
+                                  <i class="fa fa-star super-icon"></i>
                                     <span class="menu-text"> Popular Categories </span>
                                 </a>
                             </li>
                         <?php } ?>
-                         <?php   if(Session::get('currentActiveMenu') == '/admin/products'){
-                         ?>   
-                        <li class="active">
-                         <?php }else{ ?> 
+
                         <li>
-                         <?php } ?> 
+
                             <a href="/admin/products" class="knowclick">
-                                <i class="icon-dashboard"></i>
+                             <i class="fa fa-glass super-icon"></i>
+
                                 <span class="menu-text"> Products </span>
                             </a>
                         </li>
@@ -370,14 +322,14 @@ try {
                             <li class="active">Dashboard</li>
                         </ul><!-- .breadcrumb -->
 
-                        <div class="nav-search" id="nav-search">
-                            <form class="form-search">
-                                <span class="input-icon">
-                                    <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-                                    <i class="icon-search nav-search-icon"></i>
-                                </span>
-                            </form>
-                        </div><!-- #nav-search -->
+                        <!--                        <div class="nav-search" id="nav-search">
+                                                    <form class="form-search">
+                                                        <span class="input-icon">
+                                                            <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                                                            <i class="icon-search nav-search-icon"></i>
+                                                        </span>
+                                                    </form>
+                                                </div> #nav-search -->
                     </div>
 
                     <div class="page-content">
@@ -521,44 +473,44 @@ try {
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('.nav-list > li').removeClass('active');
-                    
-                    var active=$('.page-content h1').html();
-                    
-                    if (active == 'Categories'){                       
-                    $('a[href$="/admin/categories"]').closest('li').addClass('active');
-                    }else if(active == 'Products'){
-                    $('a[href$="/admin/products"]').closest('li').addClass('active');
-                    }else if(active == 'Brands'){
-                          $('a[href$="/admin/brands"]').closest('li').addClass('active');   
-                    }else if(active == 'Popular Categories'){
-                          $('a[href$="/admin/populars"]').closest('li').addClass('active');
+
+                    var active = $('.page-content h1').html();
+
+                    if (active == 'Categories') {
+                        $('a[href$="/admin/categories"]').closest('li').addClass('active');
+                    } else if (active == 'Products') {
+                        $('a[href$="/admin/products"]').closest('li').addClass('active');
+                    } else if (active == 'Brands') {
+                        $('a[href$="/admin/brands"]').closest('li').addClass('active');
+                    } else if (active == 'Popular Categories') {
+                        $('a[href$="/admin/populars"]').closest('li').addClass('active');
                     }
-                     var dashboard=$('.page-content h3').text();
-                     if (dashboard == ' Dashboard'){                       
-                    $('a[href$="/admin/users/dashboard"]').closest('li').addClass('active');
+                    var dashboard = $('.page-content h3').text();
+                    if (dashboard == ' Dashboard') {
+                        $('a[href$="/admin/users/dashboard"]').closest('li').addClass('active');
                     }
-                   
-                   var mul=$('.panel-heading h3').text();
-                  
-                    if(mul == ' Users User search'){                       
-                    $('a[href$="/admin/users/list"]').closest('li').addClass('active');
-                    $('a[href$="/admin/users/list"]').closest('li').parent().parent().addClass('active open');
-                    }else if(mul == ' Create user'){
+
+                    var mul = $('.panel-heading h3').text();
+
+                    if (mul == ' Users User search') {
+                        $('a[href$="/admin/users/list"]').closest('li').addClass('active');
+                        $('a[href$="/admin/users/list"]').closest('li').parent().parent().addClass('active open');
+                    } else if (mul == ' Create user') {
                         console.log('asdasd');
-                    $('a[href$="/admin/users/edit"]').closest('li').addClass('active');
-                    $('a[href$="/admin/users/edit"]').closest('li').parent().parent().addClass('active open');
-                    }else if(mul == ' Groups Group search'){
-                    $('a[href$="/admin/groups/list"]').closest('li').addClass('active');   
-                    $('a[href$="/admin/groups/list"]').closest('li').parent().parent().addClass('active open');
-                    }else if(mul == ' Create group'){
-                    $('a[href$="/admin/groups/edit"]').closest('li').addClass('active');     
-                    $('a[href$="/admin/groups/edit"]').closest('li').parent().parent().addClass('active open');
-                    }else if(mul == ' Permissions'){
-                    $('a[href$="/admin/permissions/list"]').closest('li').addClass('active');   
-                     $('a[href$="/admin/permissions/list"]').closest('li').parent().parent().addClass('active open');
-                    }else if(mul == ' Create permission'){
-                    $('a[href$="/admin/permissions/edit"]').closest('li').addClass('active');
-                    $('a[href$="/admin/permissions/edit"]').closest('li').parent().parent().addClass('active open');
+                        $('a[href$="/admin/users/edit"]').closest('li').addClass('active');
+                        $('a[href$="/admin/users/edit"]').closest('li').parent().parent().addClass('active open');
+                    } else if (mul == ' Groups Group search') {
+                        $('a[href$="/admin/groups/list"]').closest('li').addClass('active');
+                        $('a[href$="/admin/groups/list"]').closest('li').parent().parent().addClass('active open');
+                    } else if (mul == ' Create group') {
+                        $('a[href$="/admin/groups/edit"]').closest('li').addClass('active');
+                        $('a[href$="/admin/groups/edit"]').closest('li').parent().parent().addClass('active open');
+                    } else if (mul == ' Permissions') {
+                        $('a[href$="/admin/permissions/list"]').closest('li').addClass('active');
+                        $('a[href$="/admin/permissions/list"]').closest('li').parent().parent().addClass('active open');
+                    } else if (mul == ' Create permission') {
+                        $('a[href$="/admin/permissions/edit"]').closest('li').addClass('active');
+                        $('a[href$="/admin/permissions/edit"]').closest('li').parent().parent().addClass('active open');
                     }
 //                    console.log(active);
 //                   function getActive(url){
@@ -576,7 +528,7 @@ try {
 //                               }
 //                         });
 //                   }
-                     
+
 //                       $('.knowclick').click(function(){
 //                       var url=$(this).attr('href');
 //                       
@@ -597,46 +549,46 @@ try {
 //                    }); 
 //                    
                     $('.featured-item').click(function () {
-                        var check='';
+                        var check = '';
                         if ($(this).is(':checked')) {
-                              var check='yes'; 
-                           
-                        } else {
-                             var check='no';
-                           
-                        }                        
-                         var id = $(this).closest("tr").data("id");
-                            var ajaxurl = '<?php echo URL::to('/'); ?>/admin/products/featuredItems/' + id;
-                            jQuery.ajax({
-                                type: 'GET',
-                                 data: {'check': check},
-                                url: ajaxurl,
-                                success: function () {
+                            var check = 'yes';
 
-                                }
-                            });
+                        } else {
+                            var check = 'no';
+
+                        }
+                        var id = $(this).closest("tr").data("id");
+                        var ajaxurl = '<?php echo URL::to('/'); ?>/admin/products/featuredItems/' + id;
+                        jQuery.ajax({
+                            type: 'GET',
+                            data: {'check': check},
+                            url: ajaxurl,
+                            success: function () {
+
+                            }
+                        });
 
 
                     });
-                     $('.top-selling').click(function () {
-                        var check='';
+                    $('.top-selling').click(function () {
+                        var check = '';
                         if ($(this).is(':checked')) {
-                              var check='yes'; 
-                           
-                        } else {
-                             var check='no';
-                           
-                        }                        
-                         var id = $(this).closest("tr").data("id");
-                            var ajaxurl = '<?php echo URL::to('/'); ?>/admin/products/topSell/' + id;
-                            jQuery.ajax({
-                                type: 'GET',
-                                 data: {'check': check},
-                                url: ajaxurl,
-                                success: function () {
+                            var check = 'yes';
 
-                                }
-                            });
+                        } else {
+                            var check = 'no';
+
+                        }
+                        var id = $(this).closest("tr").data("id");
+                        var ajaxurl = '<?php echo URL::to('/'); ?>/admin/products/topSell/' + id;
+                        jQuery.ajax({
+                            type: 'GET',
+                            data: {'check': check},
+                            url: ajaxurl,
+                            success: function () {
+
+                            }
+                        });
 
 
                     });
