@@ -265,7 +265,7 @@ try {
                             <li>
 
                                 <a href="/admin/categories" class="knowclick">
-                                   <i class="fa fa-sort-alpha-asc super-icon"></i>
+                                    <i class="fa fa-sort-alpha-asc super-icon"></i>
 
 
 
@@ -276,14 +276,14 @@ try {
                             <li>
 
                                 <a href="/admin/populars" class="knowclick">
-                                  <i class="fa fa-star super-icon"></i>
+                                    <i class="fa fa-star super-icon"></i>
                                     <span class="menu-text"> Popular Categories </span>
                                 </a>
                             </li>
                             <li>
 
                                 <a href="/admin/subcategories" class="knowclick">
-                                  <i class="fa fa-sort-amount-asc super-icon"></i>
+                                    <i class="fa fa-sort-amount-asc super-icon"></i>
 
 
                                     <span class="menu-text"> Sub Categories </span>
@@ -294,7 +294,7 @@ try {
                         <li>
 
                             <a href="/admin/products" class="knowclick">
-                             <i class="fa fa-glass super-icon"></i>
+                                <i class="fa fa-glass super-icon"></i>
 
                                 <span class="menu-text"> Products </span>
                             </a>
@@ -439,7 +439,7 @@ try {
                         $('a[href$="/admin/brands"]').closest('li').addClass('active');
                     } else if (active == 'Popular Categories') {
                         $('a[href$="/admin/populars"]').closest('li').addClass('active');
-                    
+
                     } else if (active == 'Sub Categories') {
                         $('a[href$="/admin/subcategories"]').closest('li').addClass('active');
                     }
@@ -492,28 +492,116 @@ try {
 
 
                     });
-                    $('.top-selling').click(function () {
-                        var check = '';
-                        if ($(this).is(':checked')) {
-                            var check = 'yes';
+                    var id = $('.category-list').val();
+                    var text = $('.page-content h1').text();
+                    if (text == 'Edit Product') {
+                        var action = $("#products-form").attr('action');
+                        var urls = action.split('/');
+                        var product_id = urls[5];
+//                                    console.log(urls[5]);
+                    } else {
+                        var product_id = 0;
+                    }
 
-                        } else {
-                            var check = 'no';
-
-                        }
-                        var id = $(this).closest("tr").data("id");
-                        var ajaxurl = '<?php echo URL::to('/'); ?>/admin/products/topSell/' + id;
+                    if (id) {
+                        var ajaxurl = '<?php echo URL::to('/'); ?>/admin/subcategories/getSubCategories/' + id;
                         jQuery.ajax({
                             type: 'GET',
-                            data: {'check': check},
+                            data: {'product_id': product_id},
                             url: ajaxurl,
-                            success: function () {
+                            success: function (data) {
+                                $(".subcategory-list option").each(function () {
+                                    $(this).remove();
+                                });
 
+
+//                                    console.log(data[0][cnt]);
+                                if (text == 'Edit Product') {
+//                                    console.log(data[1][0].subcategory_id);
+                                    for (cnt in data[0]) {
+                                        if (data[1][0].subcategory_id == data[0][cnt].id)
+                                            $('.subcategory-list').append('<option value=' + data[0][cnt].id + '>' + data[0][cnt].name + '</option>');
+                                    }
+
+                                    for (cnt in data[0]) {
+                                        if (data[1][0].subcategory_id != data[0][cnt].id)
+                                            $('.subcategory-list').append('<option value=' + data[0][cnt].id + '>' + data[0][cnt].name + '</option>');
+                                    }
+
+
+                                } else {
+                                    for (cnt in data[0]) {
+                                        $('.subcategory-list').append('<option value=' + data[0][cnt].id + '>' + data[0][cnt].name + '</option>');
+                                    }
+                                }
+                            }
+
+                        });
+                    }
+
+                    $('.category-list').change(function () {
+                        var id = $('.category-list').val();
+                        var text = $('.page-content h1').text();
+                        if (text == 'Edit Product') {
+                            var action = $("#products-form").attr('action');
+                            var urls = action.split('/');
+                            var product_id = urls[5];
+//                                    console.log(urls[5]);
+                        } else {
+                            var product_id = 0;
+                        }
+                        var ajaxurl = '<?php echo URL::to('/'); ?>/admin/subcategories/getSubCategories/' + id;
+                        jQuery.ajax({
+                            type: 'GET',
+                            data: {'product_id': product_id},
+                            url: ajaxurl,
+                            success: function (data) {
+                                $(".subcategory-list option").each(function () {
+                                    $(this).remove();
+                                });
+                                if (text == 'Edit Product') {
+//                                    console.log(data[1][0].subcategory_id);
+                                    for (cnt in data[0]) {
+                                        if (data[1][0].subcategory_id == data[0][cnt].id)
+                                            $('.subcategory-list').append('<option value=' + data[0][cnt].id + '>' + data[0][cnt].name + '</option>');
+                                    }
+
+                                    for (cnt in data[0]) {
+                                        if (data[1][0].subcategory_id != data[0][cnt].id)
+                                            $('.subcategory-list').append('<option value=' + data[0][cnt].id + '>' + data[0][cnt].name + '</option>');
+                                    }
+
+
+                                } else {
+                                    for (cnt in data[0]) {
+                                        $('.subcategory-list').append('<option value=' + data[0][cnt].id + '>' + data[0][cnt].name + '</option>');
+                                    }
+                                }
                             }
                         });
-
-
                     });
+//                    $('.top-selling').click(function () {
+//                        var check = '';
+//                        if ($(this).is(':checked')) {
+//                            var check = 'yes';
+//
+//                        } else {
+//                            var check = 'no';
+//
+//                        }
+//                        var id = $(this).closest("tr").data("id");
+//                        var ajaxurl = '<?php echo URL::to('/'); ?>/admin/products/topSell/' + id;
+//                        jQuery.ajax({
+//                            type: 'GET',
+//                            data: {'check': check},
+//                            url: ajaxurl,
+//                            success: function () {
+//
+//                            }
+//                        });
+//
+//
+//                    });
                 });
 
                 // validate signup form on keyup and submit
