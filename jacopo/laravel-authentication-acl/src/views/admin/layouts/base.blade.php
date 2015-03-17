@@ -494,17 +494,24 @@ try {
                     });
                     var id = $('.category-list').val();
                     var text = $('.page-content h1').text();
-                    if (text == 'Edit Product') {
-                        var action = $("#products-form").attr('action');
-                        var urls = action.split('/');
-                        var product_id = urls[5];
+                       if (text == 'Edit Product') {
+                            var action = $("#products-form").attr('action');
+                            var urls = action.split('/');
+                            var product_id = urls[5];
 //                                    console.log(urls[5]);
-                    } else {
-                        var product_id = 0;
-                    }
-
+                        } else if(text == 'Edit Populars'){
+                            var action = $("#populars-form").attr('action');
+                            var urls = action.split('/');
+                            var product_id = urls[5];
+                        }else {
+                            var product_id = 0;
+                        }
                     if (id) {
+                         if (text == 'Edit Product') {
                         var ajaxurl = '<?php echo URL::to('/'); ?>/admin/subcategories/getSubCategories/' + id;
+                    }else{
+                        var ajaxurl = '<?php echo URL::to('/'); ?>/admin/subcategories/getSubCategoriesPopular/' + id;
+                    }
                         jQuery.ajax({
                             type: 'GET',
                             data: {'product_id': product_id},
@@ -513,11 +520,7 @@ try {
                                 $(".subcategory-list option").each(function () {
                                     $(this).remove();
                                 });
-
-
-//                                    console.log(data[0][cnt]);
-                                if (text == 'Edit Product') {
-//                                    console.log(data[1][0].subcategory_id);
+                                 if (text == 'Edit Product' || text == 'Edit Populars') {
                                     for (cnt in data[0]) {
                                         if (data[1][0].subcategory_id == data[0][cnt].id)
                                             $('.subcategory-list').append('<option value=' + data[0][cnt].id + '>' + data[0][cnt].name + '</option>');
@@ -542,12 +545,16 @@ try {
                     $('.category-list').change(function () {
                         var id = $('.category-list').val();
                         var text = $('.page-content h1').text();
-                        if (text == 'Edit Product') {
+                           if (text == 'Edit Product') {
                             var action = $("#products-form").attr('action');
                             var urls = action.split('/');
                             var product_id = urls[5];
 //                                    console.log(urls[5]);
-                        } else {
+                        } else if(text == 'Edit Populars'){
+                            var action = $("#populars-form").attr('action');
+                            var urls = action.split('/');
+                            var product_id = urls[5];
+                        }else {
                             var product_id = 0;
                         }
                         var ajaxurl = '<?php echo URL::to('/'); ?>/admin/subcategories/getSubCategories/' + id;
@@ -559,7 +566,7 @@ try {
                                 $(".subcategory-list option").each(function () {
                                     $(this).remove();
                                 });
-                                if (text == 'Edit Product') {
+                                if (text == 'Edit Product' || text == 'Edit Populars') {
 //                                    console.log(data[1][0].subcategory_id);
                                     for (cnt in data[0]) {
                                         if (data[1][0].subcategory_id == data[0][cnt].id)

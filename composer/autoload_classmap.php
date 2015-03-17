@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddColouToBrands' => $baseDir . '/app/database/migrations/2015_03_10_100251_add_colou_to_brands.php',
+    'AddColoumToPopular' => $baseDir . '/app/database/migrations/2015_03_17_065025_add_coloum_to_popular.php',
     'AddColoumToUserTable' => $baseDir . '/app/database/migrations/2015_02_26_065915_add_coloum_to_user_table.php',
     'AddSubCatedoryIdToProducats' => $baseDir . '/app/database/migrations/2015_03_12_102620_add_sub_catedory_id_to_producats.php',
     'AddTwoColoumToProductsTable' => $baseDir . '/app/database/migrations/2015_02_26_113750_add_two_coloum_to_products_table.php',
