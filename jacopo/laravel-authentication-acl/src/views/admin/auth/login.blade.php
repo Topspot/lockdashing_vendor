@@ -11,7 +11,7 @@ Admin login
 <!-- BEGIN LOGO -->
 <div class="logo">
 	<a href="index.html">
-	<img src="/images/Lookdashinglogo400.png" alt=""/>
+	<img src="<?php echo URL::to('/'); ?>/images/Lookdashinglogo400.png" alt=""/>
 	</a>
 </div>
 <!-- END LOGO -->
@@ -20,7 +20,9 @@ Admin login
 
         <?php $message = Session::get('message'); ?>
                 @if( isset($message) )
+                 @if( !empty($message) )
                 <div class="alert alert-success">{{$message}}</div>
+                @endif
                 @endif
                 @if($errors && ! $errors->isEmpty() )
                 @foreach($errors->all() as $error)

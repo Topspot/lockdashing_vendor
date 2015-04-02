@@ -10,7 +10,7 @@ User Signup
 <!-- BEGIN LOGO -->
 <div class="logo">
 	<a href="index.html">
-	<img src="/images/Lookdashinglogo400.png" alt=""/>
+	<img src="<?php echo URL::to('/'); ?>/images/Lookdashinglogo400.png" alt=""/>
 	</a>
 </div>
 <!-- END LOGO -->

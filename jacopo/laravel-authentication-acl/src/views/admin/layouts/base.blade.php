@@ -17,50 +17,27 @@
         {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css') }}
 
         <!-- basic styles -->
+  {{ HTML::style('assets/css/bootstrap.min.css') }}
+  {{ HTML::style('assets/css/font-awesome.min.css') }}
+  {{ HTML::style('css/main-style.css') }}
+  
+  {{ HTML::style('assets/css/jquery-ui-1.10.3.custom.min.css') }}
+  {{ HTML::style('assets/css/chosen.css') }}
+  {{ HTML::style('assets/css/datepicker.css') }}
+  {{ HTML::style('assets/css/bootstrap-timepicker.css"') }}
+  {{ HTML::style('assets/css/daterangepicker.css') }}
+  {{ HTML::style('assets/css/colorpicker.css') }}
+  
+  
+  {{ HTML::style('assets/css/ace-fonts.css') }}
+  
+  {{ HTML::style('assets/css/ace.min.css') }}
+  {{ HTML::style('assets/css/ace-rtl.min.css') }}
+  {{ HTML::style('assets/css/ace-skins.min.css') }}
 
-        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="/css/main-style.css" />
+  
+{{ HTML::script('assets/js/ace-extra.min.js') }}
 
-        <!--[if IE 7]>
-          <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
-        <![endif]-->
-
-        <!-- page specific plugin styles -->
-
-        <link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.custom.min.css" />
-        <link rel="stylesheet" href="/assets/css/chosen.css" />
-        <link rel="stylesheet" href="/assets/css/datepicker.css" />
-        <link rel="stylesheet" href="/assets/css/bootstrap-timepicker.css" />
-        <link rel="stylesheet" href="/assets/css/daterangepicker.css" />
-        <link rel="stylesheet" href="/assets/css/colorpicker.css" />
-
-        <!-- fonts -->
-
-        <link rel="stylesheet" href="/assets/css/ace-fonts.css" />
-
-        <!-- ace styles -->
-
-        <link rel="stylesheet" href="/assets/css/ace.min.css" />
-        <link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
-        <link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
-
-        <!--[if lte IE 8]>
-          <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
-        <![endif]-->
-
-        <!-- inline styles related to this page -->
-
-        <!-- ace settings handler -->
-
-        <script src="/assets/js/ace-extra.min.js"></script>
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
-        <!--[if lt IE 9]>
-        <script src="assets/js/html5shiv.js"></script>
-        <script src="assets/js/respond.min.js"></script>
-        <![endif]-->
     </head>
 
     <body class="skin-3">
@@ -75,8 +52,8 @@ try {
 
             <div class="navbar-container" id="navbar-container">
                 <div class="navbar-header pull-left">
-                    <a href="/admin/users/dashboard" class="navbar-brand" style="margin-left: -15px !important;">
-                        <img  src="/images/smalllookdashinglogo190.png" alt="Jason's Photo" />
+                    <a href="<?php echo URL::to('/'); ?>/admin/users/dashboard" class="navbar-brand" style="margin-left: -15px !important;">
+                        <img  src="<?php echo URL::to('/'); ?>/images/smalllookdashinglogo190.png" alt="Jason's Photo" />
 
 
                     </a><!-- /.brand -->
@@ -98,7 +75,7 @@ try {
 
                             <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                                 <li>
-                                    <a href="/admin/users/profile/edit?user_id=<?php echo Sentry::getUser()->id; ?>">
+                                    <a href="<?php echo URL::to('/'); ?>/admin/users/profile/edit?user_id=<?php echo Sentry::getUser()->id; ?>">
                                         <i class="icon-cog"></i>
                                         Profile
                                     </a>
@@ -106,7 +83,7 @@ try {
 
                                 <li>
 
-                                    <a href="/admin/users/edit?id=<?php echo Sentry::getUser()->id; ?>" >
+                                    <a href="<?php echo URL::to('/'); ?>/admin/users/edit?id=<?php echo Sentry::getUser()->id; ?>" >
                                         <i class="icon-user"></i>
                                         Account
                                     </a>
@@ -115,7 +92,7 @@ try {
                                 <li class="divider"></li>
 
                                 <li>
-                                    <a href="/user/logout">
+                                    <a href="<?php echo URL::to('/'); ?>/user/logout">
                                         <i class="icon-off"></i>
                                         Logout
                                     </a>
@@ -153,7 +130,7 @@ try {
                     <ul class="nav nav-list">
 
                         <li>  
-                            <a href="/admin/users/dashboard" class="knowclick">
+                            <a href="<?php echo URL::to('/'); ?>/admin/users/dashboard" class="knowclick">
                                 <i class="icon-dashboard"></i>
                                 <span class="menu-text">Dashboard </span>
                             </a>
@@ -175,7 +152,7 @@ try {
 
                                     <li>
 
-                                        <a href="/admin/users/list" class="knowclick">
+                                        <a href="<?php echo URL::to('/'); ?>/admin/users/list" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             List
                                         </a>
@@ -183,7 +160,7 @@ try {
 
                                     <li>
 
-                                        <a href="/admin/users/edit" class="knowclick">
+                                        <a href="<?php echo URL::to('/'); ?>/admin/users/edit" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             Add 
                                         </a>
@@ -205,7 +182,7 @@ try {
 
                                     <li>
 
-                                        <a href="/admin/groups/list" class="knowclick">
+                                        <a href="<?php echo URL::to('/'); ?>/admin/groups/list" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             List
                                         </a>
@@ -214,7 +191,7 @@ try {
 
                                     <li>
 
-                                        <a href="/admin/groups/edit" class="knowclick">
+                                        <a href="<?php echo URL::to('/'); ?>/admin/groups/edit" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             Add
                                         </a>
@@ -236,7 +213,7 @@ try {
 
                                     <li>
 
-                                        <a href="/admin/permissions/list" class="knowclick">
+                                        <a href="<?php echo URL::to('/'); ?>/admin/permissions/list" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             List
                                         </a>
@@ -244,7 +221,7 @@ try {
 
                                     <li>
 
-                                        <a href="/admin/permissions/edit" class="knowclick">
+                                        <a href="<?php echo URL::to('/'); ?>/admin/permissions/edit" class="knowclick">
                                             <i class="icon-double-angle-right"></i>
                                             Add
                                         </a>
@@ -255,7 +232,7 @@ try {
                             <li>
 
 
-                                <a href="/admin/brands" class="knowclick">
+                                <a href="<?php echo URL::to('/'); ?>/admin/brands" class="knowclick">
                                     <i class="fa fa-bold super-icon"></i>
 
                                     <span class="menu-text"> Brands </span>
@@ -264,7 +241,7 @@ try {
 
                             <li>
 
-                                <a href="/admin/categories" class="knowclick">
+                                <a href="<?php echo URL::to('/'); ?>/admin/categories" class="knowclick">
                                     <i class="fa fa-sort-alpha-asc super-icon"></i>
 
 
@@ -275,25 +252,34 @@ try {
 
                             <li>
 
-                                <a href="/admin/populars" class="knowclick">
+                                <a href="<?php echo URL::to('/'); ?>/admin/populars" class="knowclick">
                                     <i class="fa fa-star super-icon"></i>
                                     <span class="menu-text"> Popular Categories </span>
                                 </a>
                             </li>
                             <li>
 
-                                <a href="/admin/subcategories" class="knowclick">
+                                <a href="<?php echo URL::to('/'); ?>/admin/subcategories" class="knowclick">
                                     <i class="fa fa-sort-amount-asc super-icon"></i>
 
 
                                     <span class="menu-text"> Sub Categories </span>
                                 </a>
                             </li>
+                            <li>
+
+                                <a href="<?php echo URL::to('/'); ?>/admin/sliders" class="knowclick">
+                                    <i class="fa fa-sort-amount-asc super-icon"></i>
+
+
+                                    <span class="menu-text"> Slider Images </span>
+                                </a>
+                            </li>
                         <?php } ?>
 
                         <li>
 
-                            <a href="/admin/products" class="knowclick">
+                            <a href="<?php echo URL::to('/'); ?>/admin/products" class="knowclick">
                                 <i class="fa fa-glass super-icon"></i>
 
                                 <span class="menu-text"> Products </span>
@@ -372,7 +358,7 @@ try {
             <!--[if !IE]> -->
 
             <script type="text/javascript">
-                window.jQuery || document.write("<script src='/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+                window.jQuery || document.write("<script src='http://www.lawyertestsite.com/lockdashing/public/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
             </script>
 
             <!-- <![endif]-->
@@ -385,43 +371,38 @@ try {
 
             <script type="text/javascript">
                 if ("ontouchend" in document)
-                    document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+                    document.write("<script src='http://www.lawyertestsite.com/lockdashing/public/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
             </script>
-            <script src="/assets/js/bootstrap.min.js"></script>
-            <script src="/assets/js/typeahead-bs2.min.js"></script>
-            <script src="/js/jquery.validate.js"></script>
+            {{ HTML::script('assets/js/bootstrap.min.js') }}
+            {{ HTML::script('assets/js/typeahead-bs2.min.js') }}
+            {{ HTML::script('js/jquery.validate.js') }}
+            
+            {{ HTML::script('assets/js/jquery-ui-1.10.3.custom.min.js') }}
+            {{ HTML::script('assets/js/jquery.ui.touch-punch.min.js') }}
+            {{ HTML::script('assets/js/chosen.jquery.min.js') }}
+            {{ HTML::script('assets/js/fuelux/fuelux.spinner.min.js') }}
+            {{ HTML::script('assets/js/date-time/bootstrap-datepicker.min.js') }}
+            {{ HTML::script('assets/js/date-time/moment.min.js') }}       
+            {{ HTML::script('assets/js/date-time/bootstrap-timepicker.min.js') }}
+            
+            {{ HTML::script('assets/js/date-time/daterangepicker.min.js') }}
+            {{ HTML::script('assets/js/bootstrap-colorpicker.min.js') }}
+            {{ HTML::script('assets/js/jquery.knob.min.js') }}
+            {{ HTML::script('assets/js/jquery.autosize.min.js') }}
+            {{ HTML::script('assets/js/jquery.inputlimiter.1.3.1.min.js') }}
+            {{ HTML::script('assets/js/jquery.maskedinput.min.js') }}
+            {{ HTML::script('assets/js/bootstrap-tag.min.js') }}
+            {{ HTML::script('assets/js/jquery.slimscroll.min.js') }}
+            {{ HTML::script('assets/js/jquery.easy-pie-chart.min.js') }}
+            
+            {{ HTML::script('assets/js/jquery.sparkline.min.js') }}
+            {{ HTML::script('assets/js/flot/jquery.flot.min.js') }}
+            {{ HTML::script('assets/js/flot/jquery.flot.pie.min.js') }}
+            {{ HTML::script('assets/js/flot/jquery.flot.resize.min.js') }}
+            
+            {{ HTML::script('assets/js/ace-elements.min.js') }}
+            {{ HTML::script('assets/js/ace.min.js') }}
 
-            <!-- page specific plugin scripts -->
-
-            <!--[if lte IE 8]>
-              <script src="assets/js/excanvas.min.js"></script>
-            <![endif]-->
-
-            <script src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-            <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
-            <script src="/assets/js/chosen.jquery.min.js"></script>
-            <script src="/assets/js/fuelux/fuelux.spinner.min.js"></script>
-            <script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
-            <script src="/assets/js/date-time/bootstrap-timepicker.min.js"></script>
-            <script src="/assets/js/date-time/moment.min.js"></script>
-            <script src="/assets/js/date-time/daterangepicker.min.js"></script>
-            <script src="/assets/js/bootstrap-colorpicker.min.js"></script>
-            <script src="/assets/js/jquery.knob.min.js"></script>
-            <script src="/assets/js/jquery.autosize.min.js"></script>
-            <script src="/assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
-            <script src="/assets/js/jquery.maskedinput.min.js"></script>
-            <script src="/assets/js/bootstrap-tag.min.js"></script>
-            <script src="/assets/js/jquery.slimscroll.min.js"></script>
-            <script src="/assets/js/jquery.easy-pie-chart.min.js"></script>
-            <script src="/assets/js/jquery.sparkline.min.js"></script>
-            <script src="/assets/js/flot/jquery.flot.min.js"></script>
-            <script src="/assets/js/flot/jquery.flot.pie.min.js"></script>
-            <script src="/assets/js/flot/jquery.flot.resize.min.js"></script>
-
-            <!-- ace scripts -->
-
-            <script src="/assets/js/ace-elements.min.js"></script>
-            <script src="/assets/js/ace.min.js"></script>
 
             <!-- inline scripts related to this page -->
 
@@ -497,12 +478,12 @@ try {
                        if (text == 'Edit Product') {
                             var action = $("#products-form").attr('action');
                             var urls = action.split('/');
-                            var product_id = urls[5];
+                            var product_id = urls[7];
 //                                    console.log(urls[5]);
                         } else if(text == 'Edit Populars'){
                             var action = $("#populars-form").attr('action');
                             var urls = action.split('/');
-                            var product_id = urls[5];
+                            var product_id = urls[7];
                         }else {
                             var product_id = 0;
                         }
@@ -548,12 +529,14 @@ try {
                            if (text == 'Edit Product') {
                             var action = $("#products-form").attr('action');
                             var urls = action.split('/');
-                            var product_id = urls[5];
+                             console.log(urls);
+                            var product_id = urls[7];
 //                                    console.log(urls[5]);
                         } else if(text == 'Edit Populars'){
                             var action = $("#populars-form").attr('action');
                             var urls = action.split('/');
-                            var product_id = urls[5];
+                            console.log(urls);
+                            var product_id = urls[7];
                         }else {
                             var product_id = 0;
                         }
@@ -627,6 +610,8 @@ try {
                         $('.modal-title').html('Delete Brand');
                     } else if (part == 'populars') {
                         $('.modal-title').html('Delete Popular Category');
+                    } else if (part == 'sliders') {
+                        $('.modal-title').html('Delete Slider Image');
                     } else {
                         $('.modal-title').html('Delete Category');
                     }
@@ -640,11 +625,10 @@ try {
                             success: function () {
                                 //                            $('.product-table tr').filter('[data-id=' + id + ']').remove();
                                 if (type[1]) {
-                                    window.location.assign("http://localhost:8000/admin/" + part + "?" + type[1]);
+                                    window.location.assign("<?php echo URL::to('/'); ?>/admin/" + part + "?" + type[1]);
                                 } else {
-                                    window.location.assign("http://localhost:8000/admin/" + part);
+                                    window.location.assign("<?php echo URL::to('/'); ?>/admin/" + part);
                                 }
-
                             }
                         });
                     });
@@ -675,6 +659,8 @@ try {
                             ;
                         } else if (part == 'populars') {
                             $('.modal-title').html('Delete Popular Category');
+                        } else if (part == 'sliders') {
+                           $('.modal-title').html('Delete Slider Image');
                         } else {
                             $('.modal-title').html('Delete Category');
                         }
@@ -692,9 +678,9 @@ try {
                                         url: url,
                                         success: function () {
                                             if (type[1]) {
-                                                window.location.assign("http://localhost:8000/admin/" + part + "?" + type[1]);
+                                                window.location.assign("<?php echo URL::to('/'); ?>/admin/" + part + "?" + type[1]);
                                             } else {
-                                                window.location.assign("http://localhost:8000/admin/" + part);
+                                                window.location.assign("<?php echo URL::to('/'); ?>/admin/" + part);
                                             }
                                         }
                                     });

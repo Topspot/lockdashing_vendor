@@ -18,7 +18,9 @@ User login
 <div class="content">
             <?php $message = Session::get('message'); ?>
             @if( isset($message) )
+            @if( !empty($message) )
             <div class="alert alert-success">{{$message}}</div>
+            @endif
             @endif
             @if($errors && ! $errors->isEmpty() )
             @foreach($errors->all() as $error)
