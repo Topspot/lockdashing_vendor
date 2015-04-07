@@ -269,10 +269,21 @@ try {
                             <li>
 
                                 <a href="<?php echo URL::to('/'); ?>/admin/sliders" class="knowclick">
-                                    <i class="fa fa-sort-amount-asc super-icon"></i>
+                     
+                                    <i class="fa fa-picture-o super-icon"></i>
 
 
                                     <span class="menu-text"> Slider Images </span>
+                                </a>
+                            </li>
+                            <li>
+
+                                <a href="<?php echo URL::to('/'); ?>/admin/promotions" class="knowclick">
+                       
+                                        <i class="fa fa-file-image-o super-icon"></i>
+
+
+                                    <span class="menu-text"> Promotion Images </span>
                                 </a>
                             </li>
                         <?php } ?>
@@ -612,6 +623,8 @@ try {
                         $('.modal-title').html('Delete Popular Category');
                     } else if (part == 'sliders') {
                         $('.modal-title').html('Delete Slider Image');
+                    } else if (part == 'promotions') {
+                        $('.modal-title').html('Delete Promotion Image');
                     } else {
                         $('.modal-title').html('Delete Category');
                     }
@@ -661,6 +674,9 @@ try {
                             $('.modal-title').html('Delete Popular Category');
                         } else if (part == 'sliders') {
                            $('.modal-title').html('Delete Slider Image');
+                          } else if (part == 'promotions') {
+                        $('.modal-title').html('Delete Promotion Image');
+                           
                         } else {
                             $('.modal-title').html('Delete Category');
                         }
